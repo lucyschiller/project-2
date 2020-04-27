@@ -1,18 +1,41 @@
 // jshint esversion: 6
 
 let controller = function() {
-  let prefixURL =
-    "http://api.flickr.com/services/feeds/photos_public.gne?tags=";
+  /*
+  let prefixURL = "'https://thejsway-server.herokuapp.com/api/articles'";
   let suffixURL = "&format=json&jsoncallback=?";
   //get value entered by user from textbox
   let flickrTag = $("input").flickrInput();
-  let requestURL = prefixURL + flickrTag + suffixURL;
+  */
+  let requestURL = "https://thejsway-server.herokuapp.com/api/articles";
 
   //clear old photos
-  $(".photos").flickrInput("");
+  //$(".photos").flickrInput("");
 
-  $.getJSON(requestURL, function(flickrResponse) {
-    flickrResponse.items.forEach(function(item, index) {
+  $.getJSON(requestURL, function(response) {
+    console.log(response);
+
+    console.log(`Article ${response[0].id}
+      Title: ${response[0].title}
+      Content: ${response[0].content}`);
+
+    response.forEach(function(article, index) {
+      let newDiv = document.createElement("div");
+      document.querySelector(".articles").appendChild(newDiv);
+
+      let newHeader = document.createElement("h3");
+      newHeader.textContent = `Article ${article.id}`;
+      newDiv.appendChild(newHeader);
+
+      let paragraph = document.createElement("p");
+      paragraph.textContent = `${article.title}`;
+      newDiv.appendChild(paragraph);
+
+      let newParagraph = document.createElement("p");
+      newParagraph.textContent = `${article.content}`;
+      newDiv.appendChild(newParagraph);
+
+      /*
       //Flickr returns 20 images by default
       //We need only six images for the Gallery
       if (index < 6) {
@@ -30,6 +53,7 @@ let controller = function() {
         $(".photos").append($img);
         $img.fadeIn();
       }
+      */
     });
   });
 };
