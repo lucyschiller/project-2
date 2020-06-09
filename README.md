@@ -1,10 +1,5 @@
 # Project 2 Repo
-
-Repo start-state:
-
-1. README.md
-2. .gitignore
-3. gallery.html, gallery.css, gallery.js
+[My Github User Page](https://lucyschiller.github.io/)
 
 ## 281 Project 2 Learning Outcomes
 
