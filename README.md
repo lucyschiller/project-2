@@ -1,4 +1,4 @@
-# Project 2 Repo
+# CIT 281 Project 2
 [My Github User Page](https://lucyschiller.github.io/)
 
 ## 281 Project 2 Learning Outcomes
